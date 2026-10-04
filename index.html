@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#fff6d6">
+<title>Happy Birthday Butki 🎂</title>
+<style>
+:root{--paper:#fffaf0;--line:#cfe3f3;--ink:#23326b;--pink:#ff6fa5;--yel:#ffe66d;--mint:#9be7c4;--red:#ff8a7a;--hand:"Segoe Print","Bradley Hand","Chalkboard SE","Comic Sans MS","Marker Felt",cursive;--body:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--body);color:var(--ink);background:var(--paper);background-image:repeating-linear-gradient(transparent 0 31px,var(--line) 31px 32px);line-height:32px;padding-bottom:env(safe-area-inset-bottom)}
+body:before{content:"";position:fixed;left:34px;top:0;bottom:0;width:2px;background:#ffb3c1;opacity:.7;pointer-events:none}
+main{max-width:520px;margin:0 auto;padding:0 20px 60px 44px}
+h1,h2,h3,.hand{font-family:var(--hand);font-weight:700;line-height:1.15;margin:0}
+section{padding:32px 0 0}
+h2{font-size:1.7rem;margin-bottom:8px;transform:rotate(-1deg)}
+.hl{background:linear-gradient(transparent 55%,var(--yel) 55%);padding:0 4px}
+p{margin:0 0 32px}
+button{font:inherit;font-family:var(--hand);font-weight:700;color:var(--ink);background:var(--yel);border:2.5px solid var(--ink);border-radius:14px 18px 12px 16px;padding:6px 16px;line-height:1.3;box-shadow:3px 3px 0 var(--ink);cursor:pointer;transition:transform .12s,box-shadow .12s}
+button:active{transform:translate(3px,3px);box-shadow:0 0 0 var(--ink)}
+button:focus-visible,.mem:focus-visible{outline:3px solid var(--pink);outline-offset:3px}
+/* hero */
+.hero{min-height:92vh;display:flex;flex-direction:column;justify-content:center;padding-top:40px;position:relative}
+.hero small{font-family:var(--hand);font-size:1.05rem}
+.hero h1{font-size:clamp(2.8rem,15vw,4.6rem);transform:rotate(-2deg);margin:10px 0 6px}
+.hero h1 span{display:inline-block;animation:pop .7s cubic-bezier(.3,1.6,.5,1) backwards}
+.hero h1 span:nth-child(2){animation-delay:.12s}.hero h1 span:nth-child(3){animation-delay:.24s}
+@keyframes pop{from{transform:scale(0) rotate(-20deg);opacity:0}}
+.sub{font-family:var(--hand);font-size:1.15rem;margin-bottom:24px}
+.cake{align-self:flex-start;font-size:3.4rem;line-height:1.2;cursor:pointer;background:none;border:0;box-shadow:none;padding:0;animation:bob 2.4s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-8px) rotate(4deg)}}
+.hint{font-size:.85rem;opacity:.75}
+/* story */
+.mem{position:relative;background:#fff;border:2.5px solid var(--ink);border-radius:6px 14px 8px 12px;padding:10px 14px;margin:0 0 22px;cursor:pointer;line-height:1.5;box-shadow:4px 4px 0 var(--mint);transition:transform .2s}
+.mem:nth-child(even){transform:rotate(.8deg);box-shadow:4px 4px 0 #ffc4d8}
+.mem:nth-child(odd){transform:rotate(-.6deg)}
+.mem:before{content:"";position:absolute;top:-11px;left:22px;width:58px;height:18px;background:rgba(255,230,109,.8);transform:rotate(-4deg)}
+.mem b{font-family:var(--hand);display:block;font-size:1.1rem}
+.mem .when{font-size:.78rem;opacity:.65}
+.more{max-height:0;overflow:hidden;transition:max-height .35s ease;font-size:.95rem}
+.mem.open .more{max-height:260px}
+.more p{margin:8px 0 2px}
+.mem img{display:none;width:100%;border-radius:6px;margin-top:8px;border:2px solid var(--ink)}
+.mem.open img.ok{display:block}
+.tap{font-size:.75rem;opacity:.6}
+/* gags */
+.card{background:#fff;border:2.5px dashed var(--ink);border-radius:16px;padding:14px;margin-bottom:32px;line-height:1.5}
+.stage{display:flex;align-items:flex-end;gap:18px;height:170px;margin:6px 0 10px}
+.col{flex:1;text-align:center;font-size:.8rem;display:flex;flex-direction:column;justify-content:flex-end;height:100%}
+.bar{border:2.5px solid var(--ink);border-radius:10px 10px 0 0;transition:height 1.3s cubic-bezier(.2,.8,.2,1);height:0}
+#meMe{background:var(--mint)}#herBar{background:#ffc4d8}
+#msg{min-height:48px;font-family:var(--hand)}
+.thinks{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0;min-height:44px}
+.bub{background:#eef2ff;border:2px solid var(--ink);border-radius:20px;padding:2px 12px;font-size:.85rem;line-height:1.5;animation:pop .35s backwards}
+input[type=range]{width:100%;accent-color:var(--pink);height:32px}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+.os{font-family:var(--hand);font-size:1.25rem;text-align:center;border:3px solid var(--ink);border-radius:12px;background:var(--yel);padding:10px;margin-bottom:32px;line-height:1.3}
+.stat{display:flex;align-items:center;gap:8px;font-size:.88rem;line-height:1.4;margin-bottom:10px}
+.stat i{flex:1;height:14px;border:2px solid var(--ink);border-radius:8px;overflow:hidden;background:#fff}
+.stat em{display:block;height:100%;width:0;background:var(--pink);transition:width 1.2s ease}
+.stat span{width:100px}
+.letter{background:#fff8e1;border:2.5px solid var(--ink);border-radius:4px;padding:14px 16px;transform:rotate(-.6deg);box-shadow:5px 5px 0 var(--pink);line-height:32px}
+.letter p{margin:0 0 32px}
+footer{text-align:center;font-size:.8rem;opacity:.7;padding-top:24px}
+canvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:9}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom));transform:translate(-50%,120px);background:var(--ink);color:#fff;padding:6px 16px;border-radius:20px;font-size:.85rem;line-height:1.4;transition:transform .3s;z-index:10;max-width:90%}
+.toast.on{transform:translate(-50%,0)}
+main{position:relative;z-index:1}
+.floaties{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.fl{position:absolute;bottom:-50px;opacity:.5;animation:rise linear infinite}
+@keyframes rise{to{transform:translateY(-115vh) rotate(30deg)}}
+.stk{position:absolute;right:-6px;top:-16px;font-size:1.7rem;transform:rotate(12deg);filter:drop-shadow(1px 2px 0 rgba(35,50,107,.25));transition:transform .3s cubic-bezier(.3,1.8,.5,1)}
+.mem.open .stk{transform:rotate(-8deg) scale(1.4)}
+button:hover{animation:wig .4s}
+@keyframes wig{25%{transform:rotate(-3deg)}75%{transform:rotate(3deg)}}
+.hero h1 span:nth-child(3):after{content:" 🎀";font-size:.6em}
+.mascot{position:fixed;right:12px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:8;font-size:2.4rem;line-height:1;background:#fff;border:2.5px solid var(--ink);border-radius:50%;width:56px;height:56px;padding:0;box-shadow:3px 3px 0 var(--pink);animation:bob 2.6s ease-in-out infinite}
+.say{position:fixed;right:76px;bottom:calc(26px + env(safe-area-inset-bottom));z-index:8;background:#fff;border:2.5px solid var(--ink);border-radius:16px 16px 4px 16px;padding:4px 12px;font-family:var(--hand);font-size:.85rem;line-height:1.4;max-width:62vw;opacity:0;transform:scale(.6);transform-origin:right bottom;transition:.25s cubic-bezier(.3,1.6,.5,1);pointer-events:none}
+.say.on{opacity:1;transform:none}
+.sp{position:fixed;z-index:9;pointer-events:none;font-size:1.1rem;animation:spk .8s ease-out forwards}
+@keyframes spk{to{transform:translate(var(--dx),var(--dy)) scale(.3) rotate(120deg);opacity:0}}
+.card,.letter,.os{border-radius:22px}
+.gate{position:fixed;inset:0;z-index:20;background:var(--paper);background-image:repeating-linear-gradient(transparent 0 31px,var(--line) 31px 32px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;padding:24px;transition:opacity .5s,visibility .5s}
+.gate.off{opacity:0;visibility:hidden}
+.gate .gift{font-size:5rem;line-height:1.1;animation:bob 1.8s ease-in-out infinite;background:none;border:0;box-shadow:none;padding:0}
+.gate h2{font-size:1.6rem}
+.vid{background:#fff;border:2.5px solid var(--ink);border-radius:8px;padding:10px 10px 6px;transform:rotate(1deg);box-shadow:5px 5px 0 var(--mint);margin-bottom:32px;text-align:center}
+.vid video{width:100%;max-height:70vh;border-radius:4px;background:#000;display:block}
+.vid .tap{display:block;margin-top:6px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="gate" id="gate">
+  <button class="gift" id="open" aria-label="Open gift">🎁</button>
+  <h2>Butki, ye tere liye hai!</h2>
+  <div class="hint">Gift pe tap kar (music on hoga 🎶)</div>
+</div>
+<div class="floaties" id="fl"></div>
+<canvas id="cv"></canvas>
+<button class="mascot" id="mas" aria-label="Chick friend">🐥</button>
+<div class="say" id="say"></div>
+<main>
+
+<section class="hero">
+  <small>psst… Madam Ji, ye page sirf tere liye hai</small>
+  <h1><span>Happy</span> <span>Birthday</span> <span>Butki!</span></h1>
+  <div class="sub">from your favourite backchod 🤝</div>
+  <button class="cake" id="cake" aria-label="Pop confetti">🎂</button>
+  <div class="hint">Cake pe tap kar. Bas. Overthink mat kar.</div>
+</section>
+
+<section>
+  <h2><span class="hl">Ek random message</span></h2>
+  <p>Hamari story kisi movie jaisi nahi hai. Ye toh bas ek random message se shuru hui. Tap karke pages kholo 👇</p>
+  <div id="story"></div>
+</section>
+
+<section>
+  <h2><span class="hl">Madam Ji ka report card</span></h2>
+  <p>Official, verified, 100% bina kisi bias ke (thoda bias hai).</p>
+  <div class="card" id="stats"></div>
+</section>
+
+<section>
+  <h2>Height department 📏</h2>
+  <div class="card">
+    <div class="stage">
+      <div class="col"><div class="bar" id="meMe"></div>Me</div>
+      <div class="col"><div class="bar" id="herBar"></div>Butki</div>
+    </div>
+    <div id="msg">Measure karne ke liye button dabao.</div>
+    <button id="measure">Measure Butki</button>
+  </div>
+</section>
+
+<section>
+  <h2>Overthinking machine 🌀</h2>
+  <div class="card">
+    <div>Ek thought daalo, baaki machine sambhal legi.</div>
+    <div class="thinks" id="thinks"></div>
+    <div class="row"><button id="ot">Overthink karo</button><button id="stop" style="background:var(--mint)">Stop it, Madam Ji</button></div>
+  </div>
+</section>
+
+<section>
+  <h2>Fight → Normal meter</h2>
+  <div class="card">
+    <input type="range" id="mood" min="0" max="100" value="10" aria-label="Annoyance level">
+    <div id="moodTxt" class="hand">...</div>
+  </div>
+  <div class="os">Our official operating system:<br>Bakchodi + Masti</div>
+</section>
+
+<section>
+  <h2><span class="hl">Ek chhoti si video 🎬</span></h2>
+  <div class="vid">
+    <video id="vid" controls playsinline preload="none" poster="assets/poster.jpg"><source src="assets/memory.mp4" type="video/mp4"></video>
+    <span class="tap">play karne par music ruk jayega</span>
+  </div>
+</section>
+
+<section>
+  <h2><span class="hl">Ek chhoti si chitthi</span></h2>
+  <div class="letter">
+    <p>Butki,</p>
+    <p>Happy birthday butki 💖</p>
+    <p>Pata nahi yaar kese 2 saal nikal gye. Kabhi socha nahi tha class confirm karne ke liye msg karna itni achi dosti ban jayegi aur memories bhi itne sare.</p>
+    <p>Har time college mai backchodi karna, enjoy karna, kabhi ladai toh kabhi masti — sab chiz bhi aur bhot achi memories bani.</p>
+    <p>Aur ha butki tu thodi si pagali, bachi aur poori ki poori butki ha 😂</p>
+    <p>Par jo chiz best ha woh ha tere sath time spend karna aur hamesha fun karna aur tere sath hamesha haste rahna.</p>
+    <p>Isliye butki main aaj ke din jada baat bolkar tera time waste nahi karoga, kyuki tere ko bhot sari wishes aa rahi hogi, unko bhi toh reply karna ha 😂</p>
+    <p>Per bas aaj ke din itna hi bologa:</p>
+    <p>Hamesha khush rah.<br>
+    Overthink mat kar.<br>
+    Bacho wali harkatein jada kar.<br>
+    Aur aise hi pagali si rah. 💖😚💓</p>
+    <p>Happy birthday once again, Madam Ji 💖<br>
+    Stay the same, Butki.</p>
+  </div>
+  <p style="margin-top:32px;text-align:center"><button id="again">Ek aur baar confetti 🎊</button></p>
+</section>
+
+<footer>Made with bakchodi, for my best friend.<br>Pure friendship, koi aur matlab nahi 😤</footer>
+</main>
+<div class="toast" id="toast"></div>
+
+<audio id="bgMusic" preload="auto" loop>
+  <source src="assets/music.mp3" type="audio/mpeg">
+</audio>
+<button id="musicBtn" class="mascot" style="bottom:calc(82px + env(safe-area-inset-bottom));font-size:1.7rem" aria-label="Play music">🎵</button>
+
+
+<script>
+(function(){
+var $=function(i){return document.getElementById(i)};
+var toastEl=$("toast"),tt;
+function toast(t){toastEl.textContent=t;toastEl.classList.add("on");clearTimeout(tt);tt=setTimeout(function(){toastEl.classList.remove("on")},2400)}
+
+/* confetti */
+var cv=$("cv"),cx=cv.getContext("2d"),bits=[],run=false,W,H;
+function size(){var d=window.devicePixelRatio||1;W=cv.width=innerWidth*d;H=cv.height=innerHeight*d}
+size();addEventListener("resize",size);
+var cols=["#ff6fa5","#ffe66d","#9be7c4","#23326b","#ff8a7a","#8ab4ff"];
+function boom(x,y,n){
+  var d=window.devicePixelRatio||1;
+  for(var i=0;i<(n||90);i++){var a=Math.random()*Math.PI*2,s=(4+Math.random()*9)*d;
+    bits.push({x:x*d,y:y*d,vx:Math.cos(a)*s,vy:Math.sin(a)*s-6*d,w:(5+Math.random()*6)*d,c:cols[i%6],r:Math.random()*6,l:90+Math.random()*50})}
+  if(!run){run=true;requestAnimationFrame(tick)}
+}
+function tick(){
+  cx.clearRect(0,0,W,H);
+  bits=bits.filter(function(b){return b.l>0&&b.y<H+30});
+  bits.forEach(function(b){b.x+=b.vx;b.y+=b.vy;b.vy+=.35;b.vx*=.985;b.r+=.2;b.l--;
+    cx.save();cx.translate(b.x,b.y);cx.rotate(b.r);cx.fillStyle=b.c;cx.fillRect(-b.w/2,-b.w/4,b.w,b.w/2);cx.restore()});
+  if(bits.length)requestAnimationFrame(tick);else{run=false;cx.clearRect(0,0,W,H)}
+}
+var cakeMsgs=["Happy Birthday, Madam Ji! 🎉","Wish maang li? Ab overthink mat kar","Butki ka din hai, sab maaf 😌","Treat kab de rahi hai? 👀"],ci=0;
+$("cake").onclick=function(e){boom(e.clientX||innerWidth/2,e.clientY||300);toast(cakeMsgs[ci++%cakeMsgs.length])};
+$("again").onclick=function(){boom(innerWidth/2,innerHeight/2,160);toast("Bakchodi + Masti forever")};
+
+/* story */
+var mems=[
+["The random message","Pehla step","College allot hua, WhatsApp group mein add hua. Group mein Bhawna dikhi, maine bas class confirm karne ke liye message kar diya. Mujhe bilkul idea nahi tha ki ek random message itna achha dost bana dega."],
+["Pehli baar mile","College","Pehli baar college mein mile. Mujhe uske saath time bitana achha lagne laga, aur dosti dheere dheere pakki hoti gayi."],
+["Baarish wali chhutti","BGMI","College ki holiday baarish ki wajah se hui, aur humne saath BGMI khela. Chhoti si random memory, par hamari dosti aisi hi hai: random cheezein memories ban jaati hain."],
+["Mera birthday","Pehla saath","Pehli baar tere saath apna birthday manaya tha. Dost toh sab the, par ye wala thoda special tha kyunki pehli baar tere saath manaya tha. ❤️"],
+["Tera birthday","Madam Ji's turn","Fir tera birthday aaya aur humne usme bhi full maza kiya."],
+["Fresher party","Kuch mahine baad","Kuch mahine baad college ki fresher party bhi saath enjoy ki."],
+["Ladaiyan aur reset","Pura 2 saal","Arguments, random fights, ek dusre se chidna, aur fir pata nahi kaise sab normal. Ye cycle chalta hi rehta hai, aur theek bhi hai."],
+["Farmhouse farewell","Society wala","Society ka informal farewell farmhouse mein tha. Sabke saath gaye, swimming ki, masti ki. Ye memory bhoolni nahi chahiye."],
+["Second year","Ab","Ab college ka bahut time saath bitate hain. Saath college jaana, ghoomna, ek dusre ke kaam mein help karna, samosa khana aur bina plan ke bakchodi karna — ye sab ab almost routine ban gaya hai."]
+];
+var st=$("story");
+mems.forEach(function(m,i){
+  var d=document.createElement("div");d.className="mem";d.tabIndex=0;d.setAttribute("role","button");d.setAttribute("aria-expanded","false");
+  d.innerHTML='<span class="stk">'+["💬","🏫","🌧️","🎂","🎁","💃","🌀","🏊","🚇"][i]+'</span><span class="when">'+(i+1)+'. '+m[1]+'</span><b>'+m[0]+'</b><span class="tap">tap to open</span><div class="more"><p>'+m[2]+'</p><img alt="" src="photos/'+(i+1)+'.jpg"></div>';
+  var im=d.querySelector("img");im.onload=function(){im.className="ok"};im.onerror=function(){im.remove()};
+  function t(){var o=d.classList.toggle("open");d.setAttribute("aria-expanded",o);d.querySelector(".tap").textContent=o?"tap to close":"tap to open"}
+  d.onclick=t;d.onkeydown=function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();t()}};
+  st.appendChild(d);
+});
+
+/* report card */
+var stats=[["Pagalpan",100],["Cuteness",96],["Bachpana",99],["Overthinking",110],["Good advice",95],["Height",8]];
+$("stats").innerHTML=stats.map(function(s){return '<div class="stat"><span>'+s[0]+'</span><i><em data-w="'+Math.min(s[1],100)+'"></em></i><b>'+s[1]+'%</b></div>'}).join("")+'<div class="tap">Overthinking 100% se zyada hai. System bhi confuse.</div>';
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.querySelectorAll("em").forEach(function(b){b.style.width=b.dataset.w+"%"});io.unobserve(e.target)}})},{threshold:.4});
+io.observe($("stats"));
+
+/* height gag */
+var hm=["Result: Butki ki height loading…","Error: value too small to display.","Stand on toes? Allowed nahi hai 😤","Chinta mat kar, shoulders par utha ke fest dikha diya tha.","Final: Pocket edition. Best edition."],hi=0;
+$("measure").onclick=function(){
+  $("meMe").style.height="100%";$("herBar").style.height=(hi%2?"58%":"50%");
+  $("msg").textContent=hm[hi++%hm.length];
+};
+
+/* overthink */
+var th=["Usne kya matlab se bola?","Kya maine kuch galat bol diya?","Seen kyun kiya reply nahi?","Kal exam mein kya hoga?","Kya sab mere baare mein soch rahe hain?","Wait, ye sab sochna zaroori hai?","Aur agar aisa hua toh?"],ti=0,box=$("thinks");
+$("ot").onclick=function(){
+  var b=document.createElement("div");b.className="bub";b.textContent=th[ti++%th.length];
+  b.style.fontSize=(.85+Math.min(box.children.length,6)*.06)+"rem";box.appendChild(b);
+  if(box.children.length===8)toast("Madam Ji, 8 thoughts ho gaye. Pani pi lo 💧");
+};
+$("stop").onclick=function(){box.innerHTML="";ti=0;toast("Sab theek hai. Seriously. Tu sahi hai.");boom(innerWidth/2,innerHeight*.6,40)};
+
+/* mood */
+var mo=[[20,"Maximum chidh. Mat bula mujhe 😤"],[40,"Thoda annoyed, but reply de rahi hai"],[60,"Chai/samosa negotiation chal rahi hai"],[80,"Lagbhag normal. Ek meme bhej do"],[101,"Back to bakchodi + masti ✅"]];
+var ms=$("mood"),mt=$("moodTxt");
+function mood(){var v=+ms.value;for(var i=0;i<mo.length;i++){if(v<mo[i][0]){mt.textContent=mo[i][1];break}}}
+ms.oninput=mood;mood();
+
+/* floaties */
+var fe=["✨","🌸","⭐","🎈","🧁","🌼","☁️"],fl=$("fl");
+for(var k=0;k<12;k++){var f=document.createElement("span");f.className="fl";f.textContent=fe[k%fe.length];
+  f.style.left=(Math.random()*95)+"%";f.style.fontSize=(16+Math.random()*16)+"px";
+  f.style.animationDuration=(16+Math.random()*14)+"s";f.style.animationDelay="-"+(Math.random()*24)+"s";fl.appendChild(f)}
+
+/* tap sparkles */
+var se=["✨","⭐","🌸","💫"];
+addEventListener("pointerdown",function(e){
+  for(var j=0;j<4;j++){var s=document.createElement("span");s.className="sp";s.textContent=se[j%4];
+    s.style.left=e.clientX-8+"px";s.style.top=e.clientY-8+"px";
+    s.style.setProperty("--dx",(Math.random()*90-45)+"px");s.style.setProperty("--dy",(Math.random()*-70-10)+"px");
+    document.body.appendChild(s);setTimeout(function(n){n.remove()},850,s)}
+});
+
+/* chick mascot */
+var sy=$("say"),sl=["Cheep! Happy Birthday Butki 🐥","Pani pi li? Overthink mat kar 💧","Main tere height ka secret nahi bataunga 🤫","Aaj tu queen hai, Madam Ji 👑","Tu pagal hai, par best wali 🌸","Scroll karte reh, aur surprises hain ✨","Samosa kab? 🥟"],si=0,sh;
+function say(t){sy.textContent=t;sy.classList.add("on");clearTimeout(sh);sh=setTimeout(function(){sy.classList.remove("on")},3000)}
+$("mas").onclick=function(){say(sl[si++%sl.length])};
+/* music */
+var au=$("bgMusic"),mb=$("musicBtn"),on=false,vd=$("vid"),resume=false;
+au.volume=.6;
+function startM(){au.play().then(function(){on=true;mb.textContent="🔊"}).catch(function(){})}
+function stopM(){au.pause();on=false;mb.textContent="🎵"}
+mb.onclick=function(){on?stopM():startM()};
+au.onerror=function(){on=false;mb.textContent="🎵"};
+$("open").onclick=function(e){startM();$("gate").classList.add("off");boom(e.clientX||innerWidth/2,e.clientY||innerHeight/2,100)};
+vd.addEventListener("play",function(){resume=on;if(on)stopM()});
+vd.addEventListener("pause",function(){if(resume){resume=false;startM()}});
+vd.addEventListener("ended",function(){if(resume){resume=false;startM()}});
+document.addEventListener("visibilitychange",function(){if(document.hidden&&on){au.pause()}else if(!document.hidden&&on){au.play().catch(function(){})}});
+setTimeout(function(){say("Cheep! Ye page sirf Butki ke liye hai 🐥")},1800);
+})();
+</script>
+</body>
+</html>
